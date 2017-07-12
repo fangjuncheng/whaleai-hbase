@@ -49,6 +49,7 @@ echo "hbase-$HBASE_VERSION　>>解压完成"
 sudo mv  hbase-$HBASE_VERSION /opt/
 #配置hbase的配置文件
 echo "export JAVA_HOME=$JAVA_HOME">>$HBASE_HOME/conf/hbase-env.sh
+echo "export HBASE_PID_DIR=$HADOOP_HOME/whaleai/pids">>$HBASE_HOME/conf/hbase-env.sh
 create_config --file hbase-site.xml
 put_config --file hbase-site.xml --property fs.defaultFS --value "true"
 put_config --file hbase-site.xml --property hbase.rootdir --value "hdfs://localhost:9000/hbase"
